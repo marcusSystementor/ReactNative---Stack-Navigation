@@ -1,4 +1,4 @@
-
+import { StatusBar } from 'expo-status-bar';
 import { Pressable, StyleSheet, Text, View } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import Home from './screens/Home';
@@ -7,7 +7,7 @@ import Cars from './screens/Cars';
 
 const Stack = createStackNavigator();
 
-export default function App() {
+export default function AppBefore() {
   return (
     <>
 
@@ -25,6 +25,17 @@ export default function App() {
         ), }}>
       <Stack.Screen name="Home" component={Home} options={{
         title: "Welcome to the Home Screen",
+        headerStyle: {
+          backgroundColor: "grey",
+          },
+          headerTintColor: "#fff",
+          headerTitleStyle: {fontWeight: "bold"},
+          headerRight: () => (
+            <Pressable onPress={() => alert("Menu pressed")}><Text style={{color: "#fff"
+            , fontSize: 16}}>
+              Menu</Text></Pressable>
+          ), 
+      
       }}
        />
       <Stack.Screen name="Cars" component={Cars} />
